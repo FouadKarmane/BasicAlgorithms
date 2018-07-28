@@ -1,4 +1,4 @@
-package graph;
+package dataStructure.graph;
 
 import java.util.ArrayList;
 
@@ -61,7 +61,26 @@ public class  Graph<T extends Comparable<T>> {
      * @return
      */
     public boolean addEdge(T from, T to){
-        return false;
+        Node startNode=null;
+        Node endNode=null;
+
+        for(Node curNode:nodes){
+            if(curNode.data.compareTo(from)==0){
+                startNode=curNode;
+                break;
+            }
+        }
+        if(startNode==null) return false;
+
+        for(Node curNode:nodes){
+            if(curNode.data.compareTo(from)==0){
+                endNode=curNode;
+                break;
+            }
+        }
+        if(endNode==null) return  false;
+
+        return startNode.addAdjNode(endNode);
     }
 
     /**
@@ -71,6 +90,25 @@ public class  Graph<T extends Comparable<T>> {
      * @return
      */
     public boolean removeEdge(T from, T to){
-        return false;
+        Node startNode=null;
+        Node endNode=null;
+
+        for(Node curNode:nodes){
+            if(curNode.data.compareTo(from)==0){
+                startNode=curNode;
+                break;
+            }
+        }
+        if(startNode==null) return false;
+
+        for(Node curNode:nodes){
+            if(curNode.data.compareTo(from)==0){
+                endNode=curNode;
+                break;
+            }
+        }
+        if(endNode==null) return  false;
+
+        return startNode.removeAdjNode(endNode);
     }
 }
