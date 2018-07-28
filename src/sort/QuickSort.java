@@ -8,7 +8,6 @@ package sort;
 class QuickSort implements SortAlgo{
 
 
-    @Override
     public <T extends Comparable<T>> void sort(T[] arr) {
         if (arr==null) return;
         sort(arr,0,arr.length-1);
